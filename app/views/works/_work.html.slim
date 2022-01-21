@@ -1,0 +1,19 @@
+.max-w-4xl.px-10.my-4.py-6.bg-white.rounded-lg.shadow-md.mx-auto
+  .flex.justify-between.items-center
+    span.font-light.text-gray-600
+      = l(work.created_at, format: :long)
+    a.px-2.py-1.bg-gray-600.text-gray-100.font-bold.rounded.hover:bg-gray-500 href="https://runteq.jp/"
+      | RUNTEQ
+  .mt-2
+    a.text-2xl.text-gray-700.font-bold.hover:text-gray-600 href="#"
+      = work.title
+    p.mt-2.text-gray-600
+      = work.content
+  .flex.justify-between.items-center.mt-4
+    a.text-blue-600.hover:underline href="#"
+      | twitter
+    div
+      a.flex.items-center href="#"
+        img.mx-4.w-10.h-10.object-cover.rounded-full.hidden.sm:block alt="avatar" src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=373&q=80" /
+      h1.text-gray-700.font-bold
+        = work.user.penname
