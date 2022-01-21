@@ -1,8 +1,8 @@
-nav.flex.items-center.justify-between.flex-wrap.bg-blue-800.p-6
+nav.flex.items-center.justify-between.flex-wrap.bg-blue-800.p-6 data-controller="navbar"
   .flex.items-center.flex-shrink-0.text-white.mr-6
     = link_to '三文小説', root_path, class: 'font-semibold text-xl tracking-tight'
   .block.lg:hidden
-    button#toggle-button.flex.items-center.px-3.py-2.border.rounded.text-teal-200.border-teal-400.hover:text-white.hover:border-white
+    button#toggle-button.flex.items-center.px-3.py-2.border.rounded.text-teal-200.border-teal-400.hover:text-white.hover:border-white data-action="click->navbar#greet"
       svg.fill-current.h-3.w-3[viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"]
         title
           | Menu
