@@ -1,7 +1,9 @@
 class WorksController < ApplicationController
   # ログイン機能を作ってから精査
   skip_before_action :require_login
+
   def index
+    @works = Work.all
   end
 
   def new
@@ -9,9 +11,9 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = Work.new(work_params)
+    @work = current_user.works.new(work_params)
     if @work.save
-      redirect_to root_path, notice: '小説を投稿しました'
+      redirect_to works_path, notice: '小説を投稿しました'
     else
       flash.now[:danger] = '小説投稿に失敗しました'
       render :new, status: :unprocessable_entity
