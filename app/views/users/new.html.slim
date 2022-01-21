@@ -2,7 +2,7 @@ div.flex.justify-center.items-center
   div class=("lg:w-2/5 md:w-1/2")
     = form_with model: @user, class: "p-5 rounded-lg min-w-full" do |f|
       h1.text-center.text-2xl.mb-6.text-gray-600.font-bold.font-sans 新規登録
-      = render "shared/error_messages_user_form", { object: f.object }
+      = render "shared/error_messages_form", { object: f.object }
       = f.label :penname, class: "text-gray-800 font-semibold block my-3 text-md"
       = f.text_field :penname, class: 'w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none'
       = f.label :email, class: "text-gray-800 font-semibold block my-3 text-md"
