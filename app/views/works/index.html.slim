@@ -1,10 +1,6 @@
 .px-10.my-4.py-6
   h1.text-center.text-2xl.text-gray-700.font-bold.hover:text-gray-600
     | 投稿一覧
-
-.flex.justify-center
-  div
-    = link_to "トップに戻る", root_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
 .container.mx-auto
   - if @works.present?
     = render @works
