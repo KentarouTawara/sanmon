@@ -2,6 +2,11 @@
   .flex.justify-between.items-center
     span.font-light.text-gray-600
       = l(work.created_at, format: :long)
+    span.font-light.text-gray-600
+      | お題:
+      - three_words = work.three_words
+      - three_words.each do |tw|
+        | #{tw.name} 
     a.px-2.py-1.bg-gray-600.text-gray-100.font-bold.rounded.hover:bg-gray-500 href="https://runteq.jp/"
       | RUNTEQ
   .mt-2

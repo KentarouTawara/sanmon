@@ -1,5 +1,7 @@
-h1 本日のお題
-p 誕生日、ポケモン、頭
+h1
+  | 今日の3文字はこちら
+  - @today_words.each do |tw|
+    = tw.name
 
 max-w-4xl.mx-auto
   = form_with model: @work, local: true, class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f|
