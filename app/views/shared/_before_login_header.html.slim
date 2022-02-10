@@ -16,6 +16,7 @@ nav.flex.items-center.justify-between.flex-wrap.bg-blue-800.p-6 data-controller=
       /a.block.mt-4.lg:inline-block.lg:mt-0.text-teal-200.hover:text-white[href="#responsive-header"]
       /  |  Blog
     div
+      = link_to '小説一覧', works_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
       - if logged_in?
         = link_to '投稿する', new_work_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
         = link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
