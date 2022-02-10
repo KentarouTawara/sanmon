@@ -2,16 +2,13 @@
   .flex.justify-between.items-center
     span.font-light.text-gray-600
       = l(work.created_at, format: :long)
-    span.font-light.text-gray-600
+    .px-2.py-1.bg-gray-600.text-gray-100.font-bold.rounded.hover:bg-gray-500
       | お題:
       - three_words = work.three_words
       - three_words.each do |tw|
-        | #{tw.name} 
-    a.px-2.py-1.bg-gray-600.text-gray-100.font-bold.rounded.hover:bg-gray-500 href="https://runteq.jp/"
-      | RUNTEQ
+        | #{tw.name}
   .mt-2
-    a.text-2xl.text-gray-700.font-bold.hover:text-gray-600 href="#"
-      = work.title
+    = link_to work.title, work_path(work), class: "text-2xl text-gray-700 font-bold hover:text-gray-600"
     p.mt-2.text-gray-600
       = work.content
   .flex.justify-between.items-center.mt-4
