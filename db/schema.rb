@@ -26,12 +26,13 @@ ActiveRecord::Schema.define(version: 2022_01_22_062948) do
 
   create_table "users", force: :cascade do |t|
     t.string "penname", null: false
-    t.string "email", null: false
+    t.string "email"
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["penname"], name: "index_users_on_penname", unique: true
   end
 
   create_table "words", force: :cascade do |t|
