@@ -2,7 +2,7 @@
   .flex.justify-between.items-center
     span.font-light.text-gray-600
       = l(work.created_at, format: :long)
-    .px-2.py-1.bg-gray-600.text-gray-100.font-bold.rounded.hover:bg-gray-500
+    .btn.btn-active.btn-ghost
       | お題:
       - three_words = work.three_words
       - three_words.each do |tw|
@@ -15,7 +15,5 @@
     a.text-blue-600.hover:underline href="#"
       | twitter
     div
-      a.flex.items-center href="#"
-        img.mx-4.w-10.h-10.object-cover.rounded-full.hidden.sm:block alt="avatar" src="https://images.unsplash.com/photo-1502980426475-b83966705988?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=373&q=80" /
       h1.text-gray-700.font-bold
-        = work.user.penname
+        | #{work.user.penname} 著
