@@ -1,6 +1,7 @@
-h1
-  | 三文小説にようこそ
-h1
-  | 今日の3文字はこちら
-  - @today_words.each do |tw|
-    = tw.name
+.max-w-3xl.mx-auto
+  h1
+    | 三文小説にようこそ
+  h1
+    | 今日の3文字はこちら
+    - @today_words.each do |tw|
+      = tw.name

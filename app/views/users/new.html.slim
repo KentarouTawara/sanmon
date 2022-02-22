@@ -1,12 +1,16 @@
-div.flex.justify-center.items-center
-  div class=("lg:w-2/5 md:w-1/2")
-    = form_with model: @user, class: "p-5 rounded-lg min-w-full" do |f|
-      h1.text-center.text-2xl.mb-6.text-gray-600.font-bold.font-sans 新規登録
-      = render "shared/error_messages_form", { object: f.object }
-      = f.label :penname, class: "text-gray-800 font-semibold block my-3 text-md"
-      = f.text_field :penname, class: 'w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none'
-      = f.label :password, class: "text-gray-800 font-semibold block my-3 text-md"
-      = f.password_field :password, class: 'w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none'
-      = f.label :password_confirmation, class: "text-gray-800 font-semibold block my-3 text-md"
-      = f.password_field :password_confirmation, class: 'w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none'
-      = f.submit '送信', class: 'w-full mt-6 bg-indigo-600 rounded-lg px-4 py-2 text-lg text-white tracking-wide font-semibold font-san'
+.max-w-3xl.mx-auto
+  = form_with model: @user, class: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" do |f|
+    h1.text-center.text-2xl.mb-6.text-gray-600.font-bold.font-sans 新規登録
+    = render "shared/error_messages_form", { object: f.object }
+    .mb-4
+      = f.label :penname, class: "label"
+      = f.text_field :penname, class: 'input input-bordered shadow w-full focus:outline-none focus:shadow-outline'
+    .mb-4
+      = f.label :password, class: "label"
+      = f.password_field :password, class: 'input input-bordered shadow w-full focus:outline-none focus:shadow-outline'
+    .mb-4
+      = f.label :password_confirmation, class: "label"
+      = f.password_field :password_confirmation, class: 'input input-bordered shadow w-full focus:outline-none focus:shadow-outline'
+    .flex.justify-center
+      = f.submit '送信', class: 'btn btn-primary'
+

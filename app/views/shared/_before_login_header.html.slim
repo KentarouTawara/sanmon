@@ -1,25 +1,17 @@
-nav.flex.items-center.justify-between.flex-wrap.bg-blue-800.p-6 data-controller="navbar"
-  .flex.items-center.flex-shrink-0.text-white.mr-6
-    = link_to '三文小説', root_path, class: 'font-semibold text-xl tracking-tight'
-  .block.lg:hidden
-    button#toggle-button.flex.items-center.px-3.py-2.border.rounded.text-teal-200.border-teal-400.hover:text-white.hover:border-white data-action="click->navbar#greet"
-      svg.fill-current.h-3.w-3[viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"]
-        title
-          | Menu
-        path[d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"]
-  #hanbager.hidden.w-full.block.flex-grow.lg:flex.lg:items-center.lg:w-auto
-    .text-sm.lg:flex-grow.lg:flex.lg:justify-end
-      /a.block.mt-4.lg:inline-block.lg:mt-0.text-teal-200.hover:text-white.mr-4[href="#responsive-header"]
-      /  |  Docs
-      /a.block.mt-4.lg:inline-block.lg:mt-0.text-teal-200.hover:text-white.mr-4[href="#responsive-header"]
-      /  |  Examples
-      /a.block.mt-4.lg:inline-block.lg:mt-0.text-teal-200.hover:text-white[href="#responsive-header"]
-      /  |  Blog
-    div
-      = link_to '小説一覧', works_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
+.navbar.bg-base-100.bg-primary.text-primary-content
+  .flex-1
+    = link_to '三文小説', root_path, class: 'btn btn-ghost normal-case text-xl'
+  .flex-none
+    ul.menu.menu-horizontal.p-0
+      li
+        = link_to '小説一覧', works_path
       - if logged_in?
-        = link_to '投稿する', new_work_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
-        = link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
+        li
+          = link_to '投稿する', new_work_path
+        li
+          = link_to 'ログアウト', logout_path, data: { turbo_method: :delete }
       - else
-        = link_to '会員登録', new_user_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
-        = link_to 'ログイン', login_path, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
+        li
+          = link_to '会員登録', new_user_path
+        li
+          = link_to 'ログイン', login_path
