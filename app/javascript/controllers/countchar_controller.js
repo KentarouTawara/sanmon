@@ -1,15 +1,26 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "name", "counter" ]
+  static targets = [ "title", "content", "title_counter", "content_counter" ]
 
-  countCharacters(event) {
-    const characters = this.nameTarget.value.length;
-    this.counterTarget.innerText = characters;
+  // contentを数える
+  countContentCharacters(event) {
+    const characters = this.contentTarget.value.length;
+    this.content_counterTarget.innerText = characters;
     if (characters < 100 || characters > 200) {
-      this.counterTarget.style.color = "red";
+      this.content_counterTarget.style.color = "red";
     } else {
-      this.counterTarget.style.color = "green";
+      this.content_counterTarget.style.color = "green";
+    }
+  }
+
+  countTitleCharacters(event) {
+    const characters = this.titleTarget.value.length;
+    this.title_counterTarget.innerText = characters;
+    if (characters > 30) {
+      this.title_counterTarget.style.color = "red";
+    } else {
+      this.title_counterTarget.style.color = "green";
     }
   }
 }
