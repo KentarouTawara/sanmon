@@ -3,30 +3,5 @@ h1.max-w-3xl.mx-auto
   - @work.three_words.each do |tw|
     = tw.name
 
-.max-w-3xl.mx-auto data-controller="countchar"
-  = form_with model: @work, local: true, class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f|
-    = render "shared/error_messages_form", { object: f.object }
-    .mb-8
-      = f.label :title, 'タイトル', class: 'label'
-      = f.text_field :title, class: 'input input-bordered shadow w-full focus:outline-none focus:shadow-outline', placeholder: "30文字まで"
-    .mb-0
-      = f.label :content, '200字小説', class: 'label'
-      = f.text_area :content, data: { countchar_target: 'name', action: 'keyup->countchar#countCharacters' }, rows: 8, class: 'textarea textarea-bordered shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: "100~200文字まで"
-    .flex.justify-end.label
-      | 文字数: <span data-countchar-target='counter'>#{@work.content.to_s.size}</span>/200
-    .flex.justify-center
-      = f.submit '作品を更新する', class: 'btn btn-primary'
-
-/.max-w-3xl.mx-auto data-controller="countchar"
-  = form_with model: @work, local: true, class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f|
-    = render "shared/error_messages_form", { object: f.object }
-    .mb-8
-      = f.label :title, 'タイトル', class: 'label'
-      = f.text_field :title, class: 'input input-bordered shadow w-full focus:outline-none focus:shadow-outline', placeholder: "30文字まで"
-    .mb-0
-      = f.label :content, '200字小説', class: 'label'
-      = f.text_area :content, data: { countchar_target: 'name', action: 'keyup->countchar#countCharacters' }, rows: 8, class: 'textarea textarea-bordered shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: "100~200文字まで"
-    .flex.justify-end.label
-      | 文字数: <span data-countchar-target='counter'>#{@work.content.to_s.size}</span>/200
-    .flex.justify-center
-      = f.submit '作品を発表する', class: 'btn btn-primary'
+div
+  = render "work_form", work: @work
