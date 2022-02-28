@@ -6,6 +6,8 @@
       li
         = link_to '小説一覧', works_path
       li
-        = link_to '会員登録', new_user_path
+        = link_to 'my小説', dashboard_path
       li
-        = link_to 'ログイン', login_path
+        = link_to '投稿する', new_work_path
+      li
+        = link_to 'ログアウト', logout_path, data: { turbo_method: :delete }

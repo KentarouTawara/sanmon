@@ -10,6 +10,9 @@ html data-theme="emerald"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    = render 'shared/before_login_header'
+    - if logged_in?
+      = render 'shared/after_login_header'
+    - else
+      = render 'shared/before_login_header'
     main
       = yield
