@@ -18,9 +18,9 @@ class WorksController < ApplicationController
       @today_words.each do |tw|
         @work.random_words.create!(word_id: tw.id)
       end
-      redirect_to works_path, notice: '小説を投稿しました'
+      redirect_to works_path, success: '小説を投稿しました'
     else
-      flash.now[:danger] = '小説投稿に失敗しました'
+      flash.now[:error] = '小説投稿に失敗しました'
       render :new, status: :unprocessable_entity
     end
   end
@@ -38,9 +38,9 @@ class WorksController < ApplicationController
     @work = current_user.works.find(params[:id])
 
     if @work.update(work_params)
-      redirect_to work_path(@work), notice: '小説を更新しました'
+      redirect_to work_path(@work), success: '小説を更新しました'
     else
-      flash.now[:danger] = '小説の更新に失敗しました'
+      flash.now[:error] = '小説の更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -48,7 +48,7 @@ class WorksController < ApplicationController
   def destroy
     work = current_user.works.find(params[:id])
     work.destroy!
-    redirect_to works_path, notice: "小説を削除しました", status: :see_other
+    redirect_to works_path, success: "小説を削除しました", status: :see_other
   end
 
   private
