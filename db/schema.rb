@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_22_062948) do
+ActiveRecord::Schema.define(version: 2022_03_08_072636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id", null: false
+    t.bigint "work_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
+    t.index ["work_id"], name: "index_comments_on_work_id"
+  end
 
   create_table "random_words", force: :cascade do |t|
     t.bigint "work_id", null: false
@@ -52,6 +62,8 @@ ActiveRecord::Schema.define(version: 2022_01_22_062948) do
     t.index ["user_id"], name: "index_works_on_user_id"
   end
 
+  add_foreign_key "comments", "users"
+  add_foreign_key "comments", "works"
   add_foreign_key "random_words", "words"
   add_foreign_key "random_words", "works"
   add_foreign_key "works", "users"
