@@ -1,0 +1,18 @@
+= turbo_frame_tag comment do
+  .relative.grid.grid-cols-1.gap-4.p-4.border.rounded-lg.bg-white.shadow-lg
+    .relative.flex.gap-4
+      .flex.flex-col.w-full
+        .flex.flex-row.justify-between
+          p.relative.text-xl.whitespace-nowrap.truncate.overflow-hidden
+            | #{comment.user.penname}
+          a.text-gray-500.text-xl[href="#"]
+            i.fa-solid.fa-trash
+        p.text-gray-400.text-sm
+          | #{l(comment.created_at, format: :long)}
+    p.-mt-4.text-gray-500
+      | #{simple_format(comment.body)}
+
+    .flex.justify-center.items-center
+      - if current_user.own?(comment)
+        = link_to  "編集", edit_comment_path(comment), class: "btn btn-primary m-4"
+        = link_to  "削除", comment_path(comment), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-accent"
