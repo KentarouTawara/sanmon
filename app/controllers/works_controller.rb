@@ -28,6 +28,8 @@ class WorksController < ApplicationController
   def show
     @work = Work.find(params[:id])
     @three_words = @work.three_words
+    @comment = Comment.new
+    @comments = @work.comments
   end
 
   def edit

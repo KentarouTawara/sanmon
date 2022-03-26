@@ -1,0 +1,10 @@
+.max-w-xl.mx-auto
+  = turbo_frame_tag @comment do
+    = form_with model: @comment, id: 'new_comment' do |f|
+      = render "shared/error_messages_form", { object: f.object }
+      .mb-2
+        = f.label :body, "コメント", class: 'label'
+        = f.text_area :body, class: 'textarea textarea-bordered shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: 'js-new-comment-body', row:4,  placeholder: "コメント"
+      = f.submit '編集する', class: 'btn btn-primary'
+
+      = link_to "戻る", work_path(@work), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium"
