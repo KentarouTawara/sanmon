@@ -12,7 +12,18 @@ class WorksController < ApplicationController
   end
 
   def create
-    @work = current_user.works.new(work_params)
+    if current_user.nil?
+      gest_user = User.new
+      gest_user.penname = "読み人知らず " + l(Time.zone.now, format: :long).to_s
+      gest_user.email = SecureRandom.hex(8)
+      gest_user.password = SecureRandom.hex(8)
+      gest_user.password_confirmation = gest_user.password
+      gest_user.save!
+
+      @work = gest_user.works.new(work_params)
+    else
+      @work = current_user.works.new(work_params)
+    end
     @today_words = Word.today_three_words
     if @work.save
       @today_words.each do |tw|

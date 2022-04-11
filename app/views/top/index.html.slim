@@ -12,8 +12,7 @@
         .m-6.basis-1/2
           = link_to '会員登録してから投稿する', new_user_path, class: 'btn btn-active btn-primary'
         .m-6.basis-1/2
-          button.btn.btn-outline.btn-primary
-            |  名無しとして投稿する
+          = link_to '名無しとして投稿する', new_work_path, class: 'btn btn-outline btn-primary'
 
   .text-2xl.text-center.p-5
     | 最新の作品
