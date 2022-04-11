@@ -80,3 +80,4 @@ group :test do
 end
 
 gem 'seed-fu', '~> 2.3'
+gem 'rails-i18n', '~> 7.0.0'

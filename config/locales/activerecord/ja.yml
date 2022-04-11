@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      user: "ユーザー"
+      word: "単語"
+      work: "作品"
+      comment: "コメント"
+    attributes:
+      user:
+        pen_name: "ペンネーム"
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "パスワード確認"
+      word:
+        name: "名前"
+      work:
+        title: "作品名"
+        content: "本文"
+      comment:
+        body: "コメント"
