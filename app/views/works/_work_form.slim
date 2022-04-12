@@ -7,8 +7,8 @@
     .flex.justify-end
       | 文字数: <span data-countchar-target='title_counter'>#{work.title.to_s.size}</span>/30
     .mb-2
-      = f.label :content, '内容', class: 'label'
-      = f.text_area :content, data: { countchar_target: 'content', action: 'keyup->countchar#countContentCharacters' }, rows: 8, class: 'textarea textarea-bordered shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: "100~200文字まで"
+      = f.label :content, '本文(100-200字）', class: 'label'
+      = f.text_area :content, data: { countchar_target: 'content', action: 'keyup->countchar#countContentCharacters' }, rows: 10, class: 'textarea textarea-bordered shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: "100~200文字まで"
     .flex.justify-end
       | 文字数: <span data-countchar-target='content_counter'>#{work.content.to_s.size}</span>/200
     .flex.justify-center

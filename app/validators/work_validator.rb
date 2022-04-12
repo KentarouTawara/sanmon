@@ -3,7 +3,7 @@ class WorkValidator < ActiveModel::Validator
     three_words = record.new_record? ? Word.today_three_words : record.three_words
     three_words.each do |tw|
       unless record.content.include? tw.name
-        record.errors.add :content, "に#{tw.name}が含まれていません。三つすべての言葉を含めてください"
+        record.errors.add :content, "に「#{tw.name}」が含まれていません。三つすべての言葉を含めてください"
       end
     end
   end

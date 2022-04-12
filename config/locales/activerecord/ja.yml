@@ -7,7 +7,7 @@ ja:
       comment: "コメント"
     attributes:
       user:
-        pen_name: "ペンネーム"
+        penname: "ペンネーム"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "パスワード確認"
