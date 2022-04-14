@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  url: <%= ENV['DATABASE_URL'] %>
   database: sanmon_production
   username: sanmon
   password: <%= ENV["SANMON_DATABASE_PASSWORD"] %>
