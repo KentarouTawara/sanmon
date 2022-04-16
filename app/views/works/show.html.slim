@@ -1,13 +1,12 @@
 .container.mx-auto
   = render @work
 
-  .max-w-4xl.px-10.my-4.py-6.mx-auto
-    .flex.justify-center.items-center
-      - if current_user.own?(@work)
+
+  - if current_user && current_user.own?(@work)
+    .max-w-4xl.px-10.my-4.py-6.mx-auto
+      .flex.justify-center.items-center
         = link_to  "編集", edit_work_path(@work), class: "btn btn-primary m-4"
         = link_to  "削除", work_path(@work), data: { turbo_method: :delete }, class: "btn btn-accent"
 
-  h6.max-w-2xl.px-10.my-4.py-6.mx-auto
-    | コメント
-  = render "comments/comments", { comments: @comments }
-  = render "comments/form", { comment: @comment, work: @work }
+    = render "comments/comments", { comments: @comments }
+    = render "comments/form", { comment: @comment, work: @work }

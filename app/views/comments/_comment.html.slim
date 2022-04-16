@@ -12,7 +12,8 @@
     p.-mt-4.text-gray-500
       | #{simple_format(comment.body)}
 
-    .flex.justify-center.items-center
-      - if current_user.own?(comment)
+
+    - if current_user && current_user.own?(comment)
+      .flex.justify-center.items-center
         = link_to  "編集", edit_comment_path(comment), class: "btn btn-primary m-4"
         = link_to  "削除", comment_path(comment), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: "btn btn-accent"
