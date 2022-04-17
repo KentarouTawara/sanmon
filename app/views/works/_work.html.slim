@@ -3,17 +3,23 @@
     span.font-light.text-gray-600
       = l(work.created_at, format: :long)
     .btn.btn-active.btn-ghost
-      | お題:
-      - three_words = work.three_words
-      - three_words.each do |tw|
-        | #{tw.name}
+      - three_words = work.three_words.pluck(:name).join("・")
+      | お題: #{three_words}
   .mt-2
-    = link_to work.title, work_path(work), class: "text-2xl text-gray-700 font-bold hover:text-gray-600"
+    = link_to work.title, work_path(work), class: "text-2xl link link-neutral text-gray-700 font-bold hover:text-gray-600"
     p.mt-2.text-gray-600
-      = work.content
+      | #{work.content}
   .flex.justify-between.items-center.mt-4
-    a.text-blue-600.hover:underline href="#"
-      | twitter
+    /デコレーター層に移すほうがきれい
+    - share_url = request.url == root_url ? request.url + work_path(work) : request.url
+    - penname = work.user.penname
+    - content = work.content.slice(0..50)
+    = link_to 'Twitterでシェア',
+            "https://twitter.com/share?url=#{ share_url }&text=#{ content }、、、%20%23三文小説%20お題:【#{ three_words }】作品名:「#{ work.title }」#{ penname }著 #{ work.three_words } ",
+            title: 'Twitter',
+            target: '_blank',
+            class: 'btn btn-outline btn-info capitalize'
+
     div
       h1.text-gray-700.font-bold
         | #{work.user.penname} 著
