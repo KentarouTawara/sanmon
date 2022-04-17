@@ -9,6 +9,10 @@ html data-theme="emerald"
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
+
+    - if Rails.env.production?
+      = render 'layouts/google_analytics'
+
   body
     - if logged_in?
       = render 'shared/after_login_header'
