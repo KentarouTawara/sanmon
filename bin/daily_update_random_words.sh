@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-echo '======================================hello================================='
+bundle exec rake daily:update_three_random_words
