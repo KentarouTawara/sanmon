@@ -81,3 +81,6 @@ end
 
 gem 'seed-fu', '~> 2.3'
 gem 'rails-i18n', '~> 7.0.0'
+
+gem 'meta-tags'
+gem 'cloudinary'
