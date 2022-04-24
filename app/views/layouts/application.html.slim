@@ -6,9 +6,11 @@ html data-theme="emerald"
       |  window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-8MJCY30946');
 
     title
-      | 三文小説
+      = page_title(yield(:title))
+
     meta[name="viewport" content="width=device-width,initial-scale=1"]
-    = favicon_link_tag('favicon.ico')
+    = display_meta_tags(default_meta_tags)
+
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"

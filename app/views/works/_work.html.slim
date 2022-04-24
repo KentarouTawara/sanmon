@@ -1,3 +1,4 @@
+
 .max-w-xl.px-10.my-4.py-6.bg-white.rounded-lg.shadow-md.mx-auto
   .flex.justify-between.items-center
     span.font-light.text-gray-600
@@ -10,14 +11,11 @@
     p.mt-2.text-gray-600
       | #{work.content}
   .flex.justify-between.items-center.mt-4
-    /デコレーター層に移すほうがきれい
-    - share_url = request.url == root_url ? request.url + work_path(work) : request.url
-    - penname = work.user.penname
-    - content = work.content.slice(0..50)
     = link_to 'Twitterでシェア',
-            "https://twitter.com/share?url=#{ share_url }&text=#{ content }、、、%20%23三文小説%20お題:【#{ three_words }】作品名:「#{ work.title }」#{ penname }著 #{ work.three_words } ",
+            "https://twitter.com/share?url=#{ work_url(work) }&text=%23三文小説%20作品名:「#{ work.title }」%20#{ work.user.penname }%20著 ",
             title: 'Twitter',
             target: '_blank',
+            rel: "noopener noreferrer",
             class: 'btn btn-outline btn-info capitalize'
 
     div
