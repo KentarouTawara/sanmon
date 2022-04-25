@@ -1,6 +1,6 @@
 - content_for(:title, "#{@work.title}")
 - three_words = @work.three_words.pluck(:name).join("・")
-- set_meta_tags og: {image: "https://res.cloudinary.com/ddzt0osez/image/upload/l_text:Sawarabi%20Gothic_30_bold:お題【#{three_words}】,g_north,y_50,h_400,w_500,c_fit/l_text:Sawarabi%20Gothic_30:#{@work.content.slice(0..100)}...,co_rgb:333,y_20,w_500,c_fit/v1650783377/howite_v17x9x.png" },twitter: {card: 'summary_large_image'}
+- set_meta_tags og: {image: "https://res.cloudinary.com/ddzt0osez/image/upload/l_text:Sawarabi%20Gothic_30_bold:お題【#{three_words}】,g_north,y_53,h_400,w_500,c_fit/l_text:Sawarabi%20Gothic_30:#{@work.content.slice(0..100)}...,co_rgb:333,y_20,w_500,c_fit/v1650783377/howite_v17x9x.png" },twitter: {card: 'summary_large_image'}
 
 .container.mx-auto
   = render @work
