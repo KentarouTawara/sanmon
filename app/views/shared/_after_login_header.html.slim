@@ -15,7 +15,7 @@
         li
           = link_to 'my小説', dashboard_path
         li
-          = link_to 'ログアウト', logout_path, data: { turbo_method: :delete }
+          = button_to 'ログアウト', logout_path, method: :delete
   .navbar-end.hidden.md:flex
     ul.menu.menu-horizontal.p-0
       li
@@ -25,4 +25,4 @@
       li
         = link_to '投稿する', new_work_path
       li
-        = link_to 'ログアウト', logout_path, data: { turbo_method: :delete }
+        = button_to 'ログアウト', logout_path, method: :delete
