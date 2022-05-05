@@ -8,7 +8,12 @@ class Word < ApplicationRecord
 
   class << self
     def update_today_words
-      three_words = Word.order("RANDOM()").limit(3)
+      # 過去一週間で選択されていない or 未選択の言葉を抽出
+      from = 1.week.ago.beginning_of_day
+      to = 1.day.ago.end_of_day
+      three_words = Word.where.not(start_at: from..to).or(Word.where(start_at: nil)).order("RANDOM()").limit(3)
+
+      # 今日の言葉にセット
       three_words.each do |word|
         word.start_at = Time.zone.now.beginning_of_day
         word.end_at = Time.zone.now.end_of_day
