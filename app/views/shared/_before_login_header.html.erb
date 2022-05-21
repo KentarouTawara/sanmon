@@ -1,0 +1,45 @@
+<div class="navbar bg-base-100 bg-primary text-primary-content">.
+  <div class="navbar-start">
+    <%= link_to '三文小説', root_path, class: 'btn btn-ghost normal-case text-xl' %>
+  </div>
+
+  <div class="navbar-end">
+    <ul class="menu menu-horizontal p-0 md:invisible">
+      <li>
+        <%= link_to '名無しで投稿', new_work_path %>
+      </li>
+    </ul>
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-ghost btn-circle md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+      </label>
+      <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-base-100 bg-primary text-primary-content rounded-box w-52">
+        <li>
+          <%= link_to '小説一覧', works_path %>
+        </li>
+        <li>
+          <%= link_to '会員登録', new_user_path %>
+        </li>
+        <li>
+          <%= link_to 'ログイン', login_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="navbar-end hidden md:flex">
+    <ul class="menu menu-horizontal p-0">
+      <li>
+        <%= link_to '名無しで投稿', new_work_path %>
+      </li>
+      <li>
+        <%= link_to '小説一覧', works_path %>
+      </li>
+      <li>
+        <%= link_to '会員登録', new_user_path %>
+      </li>
+      <li>
+        <%= link_to 'ログイン', login_path %>
+      </li>
+    </ul>
+  </div>
+</div>

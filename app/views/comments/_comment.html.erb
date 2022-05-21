@@ -1,0 +1,28 @@
+<%= turbo_frame_tag comment do %>
+  <div class="relative grid grid-cols-1 gap-4 p-4 border rounded-lg bg-white shadow-lg">
+    <div class="relative flex gap-4">
+      <div class="flex flex-col w-full">
+        <div class="flex flex-row justify-between">
+          <p class="relative text-xl whitespace-nowrap truncate overflow-hidden">
+            <%= comment.user.penname %>
+          </p>
+          <div>
+            <% if current_user && current_user.own?(comment) %>
+              <%= link_to edit_comment_path(comment), class: "mr-3" do %>
+                <i class="fa-solid fa-pen"></i>
+              <% end %>
+
+              <%= link_to comment_path(comment), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' } do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <p class="text-gray-400 text-sm">
+          <%= l(comment.created_at, format: :long) %>
+        </p>
+      </div>
+    </div>
+    <%= simple_format(comment.body) %>
+  </div>
+<% end %>
