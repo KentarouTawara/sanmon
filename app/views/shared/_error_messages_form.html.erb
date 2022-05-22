@@ -1,0 +1,11 @@
+<% if object.errors.present? %>
+  <div id="error_messages">
+    <ul class="bg-red-100 rounded-lg">
+      <% object.errors.full_messages.each do |msg| %>
+        <li class="py-3 px-6 text-sm text-red-700">
+          <%= msg %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html data-theme="emerald">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MJCY30946"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8MJCY30946');
+    </script>
+    <script src="https://kit.fontawesome.com/3a0bc94062.js" crossorigin="anonymous"></script>
+
+    <title>
+      <%= page_title(yield(:title)) %>
+    </title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= display_meta_tags(default_meta_tags) %>
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <% if logged_in? %>
+      <%= render 'shared/after_login_header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+    <main>
+      <%= render  'shared/flash_message' %>
+      <%= yield %>
+    </main>
+    <%= render 'shared/footer' %>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<div class="max-w-3xl mx-auto">
+  <div class="text-3xl font-sans text-center p-10">
+    <p>
+      3つの言葉で小さな物語を作ろう
+    </p>
+  </div>
+  <div class="text-2xl text-center">
+    <p>
+      【今日の言葉】
+    </p>
+    <div class="flex flex-row p-3">
+      <% @today_words.each do |tw| %>
+        <div class="mb:text-2xl text-center p-10 font-bold basis-1/3">
+          <%= tw.name %>
+        </div>
+      <% end %>
+    </div>
+    <% if !logged_in? %>
+      <div class="flex flex-row p-3">
+        <div class="m-6 basis-1/2">
+          <%= link_to '会員登録してから投稿する', new_user_path, class: 'btn btn-active btn-primary' %>
+        </div>
+        <div class="m-6 basis-1/2">
+          <%= link_to '名無しとして投稿する', new_work_path, class: 'btn btn-outline btn-primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-2xl text-center p-5">
+    <p>
+      最新の作品
+    </p>
+  </div>
+
+  <% if @latest_works.present? %>
+    <%= render @latest_works %>
+  <% end %>
+
+  <div class="text-center m-5">
+    <%= link_to 'もっと読む', works_path, class: 'btn btn-outline btn-secondary' %>
+    <% if !logged_in? %>
+    <div class="text-center">
+      <div class="flex flex-row p-3">
+        <div class="m-6 basis-1/2">
+          <%= link_to '会員登録してから投稿する', new_user_path, class: 'btn btn-active btn-primary' %>
+        </div>
+        <div class="m-6 basis-1/2">
+          <div>
+            <%= link_to '名無しとして投稿する', new_work_path, class: 'btn btn-outline btn-primary' %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

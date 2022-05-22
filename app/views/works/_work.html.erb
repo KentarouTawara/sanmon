@@ -1,0 +1,29 @@
+<div class="max-w-xl px-10 my-4 py-6 bg-white rounded-lg shadow-md mx-auto">
+  <div class="flex justify-between items-center">
+    <span class="font-light text-gray-600">
+      <%= l(work.created_at, format: :long) %>
+    </span>
+    <div class="btn btn-active btn-ghost">
+      <% three_words = work.three_words.pluck(:name).join("・") %>
+      お題: <%= three_words %>
+    </div>
+  </div>
+  <div class="mt-2">
+    <%= link_to work.title, work_path(work), class: "text-2xl link link-neutral text-gray-700 font-bold hover:text-gray-600" %>
+    <p class="mt-2 text-gray-600">
+       <%= work.content %>
+    </p>
+  </div>
+  <div class="flex justify-between items-center mt-4">
+    <%= link_to 'Twitterでシェア',
+            "https://twitter.com/share?url=#{ work_url(work) }&text=%23三文小説%20作品名:「#{ work.title }」%20#{ work.user.penname }%20著 ",
+            title: 'Twitter',
+            target: '_blank',
+            rel: "noopener noreferrer",
+            class: 'btn btn-outline btn-info capitalize' %>
+    <div>
+      <h1 class="text-gray-700 font-bold">
+        <%= work.user.penname %> 著
+    </div>
+  </div>
+</div>

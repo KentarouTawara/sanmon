@@ -1,7 +1,0 @@
-h1.max-w-3xl.mx-auto
-  | この作品の3文字はこちら
-  - @work.three_words.each do |tw|
-    = tw.name
-
-div
-  = render "work_form", work: @work
