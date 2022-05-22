@@ -1,6 +1,6 @@
 class WorksController < ApplicationController
   # ログイン機能を作ってから精査
-  skip_before_action :require_login
+  skip_before_action :require_login, only: %i[index new create show]
 
   def index
     @works = Work.order(id: :desc).page params[:page]
@@ -39,7 +39,7 @@ class WorksController < ApplicationController
   end
 
   def edit
-    @work = Work.find(params[:id])
+    @work = current_user.works.find(params[:id])
   end
 
   def update
