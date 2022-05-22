@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :comments, shallow: true
   end
 
+  resources :authors, only: %i[show], param: :pen_name
+
   resource :dashboard, only: %i[show]
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"

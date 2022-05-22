@@ -3,27 +3,32 @@
     <span class="font-light text-gray-600">
       <%= l(work.created_at, format: :long) %>
     </span>
-    <div class="btn btn-active btn-ghost">
+    <div class="btn btn-active btn-ghost normal-case">
       <% three_words = work.three_words.pluck(:name).join("・") %>
       お題: <%= three_words %>
     </div>
   </div>
   <div class="mt-2">
     <%= link_to work.title, work_path(work), class: "text-2xl link link-neutral text-gray-700 font-bold hover:text-gray-600" %>
-    <p class="mt-2 text-gray-600">
+    <p class="mt-2 text-gray-600 normal-case">
        <%= work.content %>
     </p>
   </div>
   <div class="flex justify-between items-center mt-4">
-    <%= link_to 'Twitterでシェア',
-            "https://twitter.com/share?url=#{ work_url(work) }&text=%23三文小説%20作品名:「#{ work.title }」%20#{ work.user.penname }%20著 ",
-            title: 'Twitter',
-            target: '_blank',
-            rel: "noopener noreferrer",
-            class: 'btn btn-outline btn-info capitalize' %>
+    <%= link_to "https://twitter.com/share?url=#{ work_url(work) }&text=%23三文小説%20作品名:「#{ work.title }」%20#{ work.user.penname }%20著 ",
+                title: 'Twitter',
+                target: '_blank',
+                rel: "noopener noreferrer",
+                class: 'btn btn-outline btn-info capitalize normal-case' do %>
+      <i class="fa-brands fa-twitter pr-1"></i>
+      twitterでシェア
+    <% end %>
     <div>
-      <h1 class="text-gray-700 font-bold">
-        <%= work.user.penname %> 著
+      <%= link_to author_path(work.user.penname) do %>
+        <div class="btn btn-active btn-link text-lg text-gray-700 font-bold normal-case">
+          <%= work.user.penname %> 著
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
