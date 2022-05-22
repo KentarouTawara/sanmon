@@ -15,12 +15,14 @@
     </p>
   </div>
   <div class="flex justify-between items-center mt-4">
-    <%= link_to 'Twitterでシェア',
-            "https://twitter.com/share?url=#{ work_url(work) }&text=%23三文小説%20作品名:「#{ work.title }」%20#{ work.user.penname }%20著 ",
-            title: 'Twitter',
-            target: '_blank',
-            rel: "noopener noreferrer",
-            class: 'btn btn-outline btn-info capitalize' %>
+    <%= link_to "https://twitter.com/share?url=#{ work_url(work) }&text=%23三文小説%20作品名:「#{ work.title }」%20#{ work.user.penname }%20著 ",
+                title: 'Twitter',
+                target: '_blank',
+                rel: "noopener noreferrer",
+                class: 'btn btn-outline btn-info capitalize normal-case' do %>
+      <i class="fa-brands fa-twitter pr-1"></i>
+      twitterでシェア
+    <% end %>
     <div>
       <%= link_to author_path(work.user.penname) do %>
         <div class="btn btn-active btn-link text-lg text-gray-700 font-bold normal-case">
