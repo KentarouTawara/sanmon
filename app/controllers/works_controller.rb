@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   skip_before_action :require_login
 
   def index
-    @works = Work.all.order(id: :desc)
+    @works = Work.order(id: :desc).page params[:page]
   end
 
   def new

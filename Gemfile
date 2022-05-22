@@ -79,8 +79,15 @@ group :test do
   gem "webdrivers"
 end
 
+# seed
 gem 'seed-fu', '~> 2.3'
 gem 'rails-i18n', '~> 7.0.0'
 
+# mata-tag
 gem 'meta-tags'
+
+# ogp
 gem 'cloudinary'
+
+# pagnation
+gem 'kaminari'

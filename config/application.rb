@@ -21,7 +21,7 @@ module Sanmon
     #
     config.time_zone = "Tokyo"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.generators.template_engine = :slim
+    config.generators.template_engine = :erb
 
     config.generators do |g|
       g.assets false
