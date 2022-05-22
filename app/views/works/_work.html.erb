@@ -3,14 +3,14 @@
     <span class="font-light text-gray-600">
       <%= l(work.created_at, format: :long) %>
     </span>
-    <div class="btn btn-active btn-ghost">
+    <div class="btn btn-active btn-ghost normal-case">
       <% three_words = work.three_words.pluck(:name).join("・") %>
       お題: <%= three_words %>
     </div>
   </div>
   <div class="mt-2">
     <%= link_to work.title, work_path(work), class: "text-2xl link link-neutral text-gray-700 font-bold hover:text-gray-600" %>
-    <p class="mt-2 text-gray-600">
+    <p class="mt-2 text-gray-600 normal-case">
        <%= work.content %>
     </p>
   </div>
@@ -22,8 +22,11 @@
             rel: "noopener noreferrer",
             class: 'btn btn-outline btn-info capitalize' %>
     <div>
-      <h1 class="text-gray-700 font-bold">
-        <%= work.user.penname %> 著
+      <%= link_to author_path(work.user.penname) do %>
+        <div class="btn btn-active btn-link text-lg text-gray-700 font-bold normal-case">
+          <%= work.user.penname %> 著
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

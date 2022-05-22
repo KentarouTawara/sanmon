@@ -1,0 +1,19 @@
+<% content_for(:title, "#{@user.penname}のページ") %>
+<div class="px-10 my-4 py-6">
+  <h1 class="text-center text-2xl text-gray-700 font-bold hover:text-gray-600">
+    <%= @user.penname%> の投稿一覧 (<%= @works_count %>件)
+  </h1>
+</div>
+<div class="container mx-auto">
+  <% if @works.present? %>
+    <%= render @works %>
+  <% else %>
+    <h2 class="text-center">
+      投稿はまだありません。最初の投稿をしましょう！
+    <h2>
+  <% end %>
+</div>
+
+<div class="container mx-auto flex justify-center pt-2 pb-4">
+  <%= paginate @works %>
+</div>
