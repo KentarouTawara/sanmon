@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   post 'login' => "user_sessions#create"
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
+  namespace :admin do
+    get 'dashboard/index'
+  end
+
   get 'terms', to: 'static_pages#terms'
   get 'privacy', to: 'static_pages#privacy'
 end
