@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard/index'
+    resources :users
   end
 
   get 'terms', to: 'static_pages#terms'

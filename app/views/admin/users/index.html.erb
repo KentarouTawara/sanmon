@@ -1,0 +1,25 @@
+<div class="text-gray-900 bg-gray-200">
+    <div class="p-4 flex">
+        <h1 class="text-3xl">
+            Users
+        </h1>
+    </div>
+    <div class="px-3 py-4 flex justify-center">
+        <table class="w-full text-md bg-white shadow-md rounded mb-4">
+            <tbody>
+                <tr class="border-b">
+                  <th class="text-left p-3 px-5">ID</th>
+                  <th class="text-left p-3 px-5">PenName</th>
+                </tr>
+
+                <% @users.each do |user| %>
+                  <tr class="border-b hover:bg-orange-100 bg-gray-100">
+                    <td class="p-3 px-5"><%= user.id %></td>
+                    <td class="p-3 px-5"><%= user.penname %></td>
+                    <td class="p-3 px-5"><%= link_to '詳細', admin_user_path(user) %></td>
+                  </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
