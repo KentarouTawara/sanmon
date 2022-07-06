@@ -10,18 +10,10 @@
     </div>
     <ul class="text-white">
       <li>
-        <a href="javascript:;" class="block p-3 border-b border-gray-900 hover:text-orange-400">
-          <i class="fas fa-home fa-fw"></i>
-          <span class="hidden-item">Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="javascript:;" @click="toggle=!toggle" class="flex items-center p-3 border-b border-gray-900 hover:text-orange-400">
-          <div class="flex-1">
-            <i class="fas fa-sitemap fa-fw"></i>
-            <span class="hidden-item">Sitemap</span>
-          </div>
-        </a>
+        <%= link_to admin_users_path, class: 'block p-3 border-b border-gray-900 hover:text-orange-400' do %>
+          <i class="fa-solid fa-users"></i>
+          <span class="hidden-item">著者</span>
+        <% end %>
       </li>
     </ul>
   </div>
