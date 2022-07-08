@@ -1,2 +1,34 @@
-<h1>Admin::Works#index</h1>
-<p>Find me in app/views/admin/works/index.html.erb</p>
+<div class="">
+  <div class="p-4 flex justify-between">
+    <h1 class="text-3xl">
+        Works
+    </h1>
+    <div>
+      <%= button_to '新規作成', new_admin_work_path, method: :get, class: "btn btn-active btn-secondary btn-sm" %>
+    </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tilte</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @works.each do |work| %>
+          <tr>
+            <th><%= work.id %></th>
+            <td><%= work.title %></td>
+            <td class = 'flex justify-end'>
+              <%= link_to '詳細', admin_work_path(work), class: "btn btn-link link-secondary" %>
+              <%= link_to '編集', edit_admin_work_path(work), class: "btn btn-link link-secondary" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
