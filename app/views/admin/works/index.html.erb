@@ -14,6 +14,7 @@
         <tr>
           <th>ID</th>
           <th>Tilte</th>
+          <th>Words</th>
           <th></th>
         </tr>
       </thead>
@@ -22,6 +23,7 @@
           <tr>
             <th><%= work.id %></th>
             <td><%= work.title %></td>
+            <td><%= work.three_words.pluck(:name).join('・') %></td>
             <td class = 'flex justify-end'>
               <%= link_to '詳細', admin_work_path(work), class: "btn btn-link link-secondary" %>
               <%= link_to '編集', edit_admin_work_path(work), class: "btn btn-link link-secondary" %>
