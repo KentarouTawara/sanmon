@@ -1,6 +1,6 @@
 class Admin::WorksController < Admin::BaseController
   def index
-    @works = Work.all.order(id: :desc)
+    @works = Work.includes(:three_words).all.order(id: :desc).page params[:page]
   end
 
   def new
