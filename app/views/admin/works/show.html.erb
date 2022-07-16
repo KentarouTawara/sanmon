@@ -18,6 +18,12 @@
             </td>
           </tr>
           <tr>
+            <th>PenName</th>
+            <td>
+              <%= link_to @work.user.penname, admin_user_path(@work.user), class: 'btn btn-link link-secondary normal-case' %>
+            </td>
+          </tr>
+          <tr>
             <th>Title</th>
             <td><%= @work.title %></td>
           </tr>

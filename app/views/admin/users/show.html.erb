@@ -1,4 +1,4 @@
-<div class="">
+<div class="max-w-xl">
     <div class="p-4 flex">
         <h1 class="text-3xl">
           <%= @user.penname %>
@@ -30,9 +30,10 @@
         </tbody>
       </table>
       <div class="p-4 flex justify-between">
-        <%= link_to '戻る', admin_users_path, class: 'btn btn-link' %>
-        <%= link_to '編集', edit_admin_user_path(@user), class: 'btn btn-link' %>
+        <%= link_to '戻る', admin_users_path, class: 'btn btn-link link-secondary' %>
+        <%= link_to '編集', edit_admin_user_path(@user), class: 'btn btn-link link-secondary' %>
         <%= button_to '削除する', admin_user_path, method: :delete, class: 'btn btn-accent' %>
       </div>
+    </div>
 </div>
 

@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   def index
-    @users = User.all
+    @users = User.all.order(id: :desc)
   end
 
   def new
@@ -37,6 +37,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy!
+    redirect_to admin_users_path, success: 'ユーザー削除が完了しました'
   end
 
   private
