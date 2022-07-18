@@ -14,6 +14,11 @@ Rails.application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
   namespace :admin do
+    get 'login' => 'user_sessions#new', :as => :login
+    post 'login' => "user_sessions#create"
+    delete 'logout' => 'user_sessions#destroy', :as => :logout
+
+    resource :dashboard, only: %i[show]
     resources :users
     resources :works
     resources :words
