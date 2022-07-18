@@ -2,8 +2,10 @@ class Word < ApplicationRecord
   validates :name, presence: true
 
   scope :today_three_words, ->() {
-    where("start_at >= ?", Time.zone.now.beginning_of_day)
-      .where("end_at <= ?", Time.zone.now.end_of_day)
+    start_at = Time.zone.now.beginning_of_day  + 5.hours
+    end_at = start_at + 24.hours
+    where("start_at >= ?", start_at)
+      .where("end_at <= ?", end_at)
   }
 
   class << self
@@ -15,10 +17,13 @@ class Word < ApplicationRecord
                         .where(active: true)
                         .order("RANDOM()").limit(3)
 
-      # 今日の言葉にセット
+      # 今日の言葉にセット.毎日5時に発動
       three_words.each do |word|
-        word.start_at = Time.zone.now.beginning_of_day
-        word.end_at = Time.zone.now.end_of_day
+        start_at = Time.zone.now.beginning_of_day  + 5.hours
+        end_at = start_at + 24.hours
+
+        word.start_at = start_at
+        word.end_at = end_at
         word.save!
       end
     end
