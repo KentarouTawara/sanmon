@@ -1,0 +1,37 @@
+<div class="">
+  <div class="p-4 flex justify-between">
+    <h1 class="text-3xl">
+        Words
+    </h1>
+    <div>
+      <%= button_to '新規作成', new_admin_word_path, method: :get, class: "btn btn-active btn-secondary btn-sm" %>
+    </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @words.each do |word| %>
+          <tr>
+            <th><%= word.id %></th>
+            <td><%= word.name %></td>
+            <td class = 'flex justify-end'>
+              <%= link_to '詳細', admin_word_path(word), class: "btn btn-link link-secondary" %>
+              <%= link_to '編集', edit_admin_word_path(word), class: "btn btn-link link-secondary" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="container mx-auto flex justify-center pt-2 pb-4">
+    <%= paginate @words %>
+  </div>
+</div>

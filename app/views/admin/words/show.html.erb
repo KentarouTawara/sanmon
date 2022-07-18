@@ -1,0 +1,31 @@
+<div class="max-w-xl">
+    <div class="p-4 flex">
+        <h1 class="text-3xl">
+          <%= @word.name %>
+        </h1>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="table w-full">
+        <tbody>
+          <tr>
+            <th>ID</th>
+            <td><%= @word.id %></td>
+          </tr>
+          <tr>
+            <th>Name</th>
+            <td><%= @word.name %></td>
+          </tr>
+          <tr>
+            <th>登録日</th>
+            <td><%= l @word.created_at, format: :long %></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="p-4 flex justify-between">
+        <%= link_to '戻る', admin_words_path, class: 'btn btn-link link-secondary' %>
+        <%= link_to '編集', edit_admin_word_path(@word), class: 'btn btn-link link-secondary' %>
+        <%= button_to '削除する', admin_word_path, method: :delete, class: 'btn btn-accent' %>
+      </div>
+    </div>
+</div>
+

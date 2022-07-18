@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
   namespace :admin do
-    get 'dashboard/index'
     resources :users
     resources :works
+    resources :words
   end
 
   get 'terms', to: 'static_pages#terms'
