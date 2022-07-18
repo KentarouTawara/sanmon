@@ -44,6 +44,6 @@ class Admin::WordsController < Admin::BaseController
   private
 
   def word_params
-    params.require(:word).permit(:name)
+    params.require(:word).permit(:name, :active)
   end
 end

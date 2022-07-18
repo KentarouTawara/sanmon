@@ -8,10 +8,12 @@ class Word < ApplicationRecord
 
   class << self
     def update_today_words
-      # 過去一週間で選択されていない or 未選択の言葉を抽出
+      # 過去一週間で選択されていない or 未選択の言葉を抽出 or active: true
       from = 1.week.ago.beginning_of_day
       to = 1.day.ago.end_of_day
-      three_words = Word.where.not(start_at: from..to).or(Word.where(start_at: nil)).order("RANDOM()").limit(3)
+      three_words = Word.where.not(start_at: from..to).or(Word.where(start_at: nil))
+                        .where(active: true)
+                        .order("RANDOM()").limit(3)
 
       # 今日の言葉にセット
       three_words.each do |word|
@@ -20,6 +22,5 @@ class Word < ApplicationRecord
         word.save!
       end
     end
-
   end
 end
