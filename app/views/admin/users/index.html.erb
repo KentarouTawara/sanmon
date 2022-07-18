@@ -1,0 +1,37 @@
+<div class="">
+  <div class="p-4 flex justify-between">
+    <h1 class="text-3xl">
+        Users
+    </h1>
+    <div>
+      <%= button_to '新規作成', new_admin_user_path, method: :get, class: "btn btn-active btn-secondary btn-sm" %>
+    </div>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>PenName</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <th><%= user.id %></th>
+            <td><%= user.penname %></td>
+            <td class = 'flex justify-end'>
+              <%= link_to '詳細', admin_user_path(user), class: "btn btn-link link-secondary" %>
+              <%= link_to '編集', edit_admin_user_path(user), class: "btn btn-link link-secondary" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="container mx-auto flex justify-center pt-2 pb-4">
+    <%= paginate @users %>
+  </div>
+</div>

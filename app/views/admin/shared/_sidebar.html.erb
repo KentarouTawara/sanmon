@@ -1,0 +1,36 @@
+<div id="menu" class="bg-gray-800 flex flex-col justify-between">
+  <div>
+    <div class="h-16 bg-blue-500 text-white flex items-center justify-center">
+      <a class="block px-5 text-white text-lg h-8 flex items-center justify-center" href="javascript:;">
+        <span class="bg-blue-700 rounded-full h-8 w-8 flex items-center justify-center">
+          <i class="fas fa-spa fa-fw"></i>
+        </span>
+        <span class="hidden-item px-2">Admin</span>
+      </a>
+    </div>
+    <ul class="text-white">
+      <li>
+        <%= link_to admin_users_path, class: 'block p-3 border-b border-gray-900 hover:text-orange-400' do %>
+          <i class="fa-solid fa-users"></i>
+          <span class="hidden-item">著者</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_works_path, class: 'block p-3 border-b border-gray-900 hover:text-orange-400' do %>
+          <i class="fa-solid fa-book"></i>
+          <span class="hidden-item">作品</span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to admin_words_path, class: 'block p-3 border-b border-gray-900 hover:text-orange-400' do %>
+          <i class="fa-solid fa-feather"></i>
+          <span class="hidden-item">単語</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <%= button_to admin_logout_path, method: :delete, class: 'block p-3 border-b border-gray-900 hover:text-orange-400' do %>
+    <i class="fas fa-power-off text-red-500"></i>
+    <span class="hidden-item">ログアウト</span>
+  <% end %>
+</div>

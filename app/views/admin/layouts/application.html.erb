@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html data-theme="emerald">
+  <head>
+    <title>
+      <%= page_title(yield(:title)) %>
+    </title>
+
+    <script src="https://kit.fontawesome.com/3a0bc94062.js" crossorigin="anonymous"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+      <div class="flex bg-gray-300">
+        <%= render 'admin/shared/sidebar' %>
+        <div class="flex-1 h-full min-h-screen">
+          <%= render 'admin/shared/header' %>
+          <div class="bg-white m-3 p-3" style="min-height: calc(100vh - 75px);">
+            <%= render  'shared/flash_message' %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>

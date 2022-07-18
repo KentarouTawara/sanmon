@@ -1,0 +1,22 @@
+<div class="max-w-xl mx-auto" data-controller="countchar">
+  <%= form_with model: work, url: admin_works_path, local: true, class: 'bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4' do |f| %>
+    <%= render "shared/error_messages_form", { object: f.object } %>
+    <div class="mb-2">
+      <%= f.label :title, 'タイトル', class: 'label' %>
+      <%= f.text_field :title, data: { countchar_target: 'title', action: 'keyup->countchar#countTitleCharacters' }, class: 'input input-bordered shadow w-full focus:outline-none focus:shadow-outline', placeholder: "30文字まで" %>
+    </div>
+    <div class="flex justify-end">
+      文字数: <span data-countchar-target='title_counter'><%= work.title.to_s.size %></span>/30
+    </div>
+    <div class="mb-2">
+      <%= f.label :content, '本文(100-200字）', class: 'label' %>
+      <%= f.text_area :content, data: { countchar_target: 'content', action: 'keyup->countchar#countContentCharacters' }, rows: 10, class: 'textarea textarea-bordered shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: "100~200文字まで" %>
+    </div>
+    <div class="flex justify-end">
+      文字数: <span data-countchar-target='content_counter'><%= work.content.to_s.size %></span>/200
+    </div>
+    <div class="flex justify-center">
+      <%= f.submit '作品を発表する', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
