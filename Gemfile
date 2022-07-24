@@ -91,3 +91,6 @@ gem 'cloudinary'
 
 # pagnation
 gem 'kaminari'
+
+# auto tweet
+gem 'twitter'
