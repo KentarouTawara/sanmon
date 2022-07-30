@@ -8,4 +8,8 @@ class Work < ApplicationRecord
   validates :title, presence: true, length: { maximum: 30 }
   validates :content, presence: true, length: { in: 100..200 }
   validates_with WorkValidator
+
+  def show_three_words
+    three_words.pluck(:name).join('・')
+  end
 end

@@ -79,6 +79,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.9.4)
       msgpack (~> 1.0)
+    buftok (0.2.0)
     builder (3.2.4)
     capybara (3.36.0)
       addressable
@@ -103,6 +104,7 @@ GEM
     digest (3.1.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    equalizer (0.0.11)
     erubi (1.10.0)
     faraday (1.9.3)
       faraday-em_http (~> 1.0)
@@ -127,11 +129,24 @@ GEM
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
     faraday-retry (1.0.3)
+    ffi (1.15.5)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (1.0.0)
       activesupport (>= 5.0)
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.3)
+      ffi-compiler (>= 1.0, < 2.0)
+    http_parser.rb (0.6.0)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.0.1)
@@ -164,6 +179,8 @@ GEM
       mini_mime (>= 0.1.1)
     marcel (1.0.2)
     matrix (0.4.2)
+    memoizable (0.4.2)
+      thread_safe (~> 0.3, >= 0.3.1)
     meta-tags (2.16.0)
       actionpack (>= 3.2.0, < 7.1)
     method_source (1.0.0)
@@ -176,6 +193,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
+    naught (1.1.0)
     net-imap (0.2.3)
       digest
       net-protocol
@@ -263,6 +281,7 @@ GEM
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
+    simple_oauth (0.3.1)
     slim (4.1.0)
       temple (>= 0.7.6, < 0.9)
       tilt (>= 2.0.6, < 2.1)
@@ -290,11 +309,23 @@ GEM
       railties (>= 6.0.0)
     temple (0.8.2)
     thor (1.2.1)
+    thread_safe (0.3.6)
     tilt (2.0.10)
     timeout (0.2.0)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    twitter (7.0.0)
+      addressable (~> 2.3)
+      buftok (~> 0.2.0)
+      equalizer (~> 0.0.11)
+      http (~> 4.0)
+      http-form_data (~> 2.0)
+      http_parser.rb (~> 0.6.0)
+      memoizable (~> 0.4.0)
+      multipart-post (~> 2.0)
+      naught (~> 1.0)
+      simple_oauth (~> 0.3.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
     unf (0.1.4)
@@ -344,6 +375,7 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails
   turbo-rails
+  twitter
   tzinfo-data
   web-console
   webdrivers
