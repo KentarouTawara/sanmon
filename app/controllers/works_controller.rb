@@ -3,7 +3,7 @@ class WorksController < ApplicationController
   skip_before_action :require_login, only: %i[index new create show]
 
   def index
-    @works = Work.order(id: :desc).page params[:page]
+    @works = Work.includes(:user, :three_words).order(id: :desc).page params[:page]
   end
 
   def new
@@ -24,6 +24,7 @@ class WorksController < ApplicationController
       @today_words.each do |tw|
         @work.random_words.create!(word_id: tw.id)
       end
+      auto_tweet(@work)
       redirect_to works_path, success: '小説を投稿しました'
     else
       flash.now[:error] = '小説投稿に失敗しました'
@@ -63,5 +64,10 @@ class WorksController < ApplicationController
 
   def work_params
     params.require(:work).permit(:title, :content)
+  end
+
+  def auto_tweet(work)
+    TwitterClient.new.tweet(work)
+    TwitterClient.new.create_direct_message(work)
   end
 end
